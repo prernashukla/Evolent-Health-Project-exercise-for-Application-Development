@@ -1,0 +1,17 @@
+<div class="login-holder">
+    <div class="login-page">
+        <form [formGroup]="loginForm" class="login-form">
+            <div class="login-logo"></div>
+            <span class="logoin-text text-center">Contact Management System</span>
+            <p class="error-message text-center" *ngIf="isInvalidUser">
+                Incorrect username or password.
+            </p>
+            <span class="error-message text-center" *ngIf="!loginForm.valid && loginForm.touched"> Username Or Password
+                is Required.</span>
+            <input type="text" class="form-input" formControlName="username" name="username" placeholder="Username"
+                autofocus />
+            <input type="password" class="form-input" formControlName="password" name="password" placeholder="Password" />
+            <button (click)="onSubmit()">login</button>
+        </form>
+    </div>
+</div>

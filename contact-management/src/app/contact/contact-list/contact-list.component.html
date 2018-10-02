@@ -1,0 +1,93 @@
+<div ui-g class="panel-bg">
+
+    <div class="ui-g margin-b-10 search-holder ui-g-nopad">
+        <div class="ui-md-12">
+            <div class="ui-md-6 ui-g-nopad pull-left" style="padding-left: 10px;">
+                <div class="ui-g-nopad">
+                    <button pButton type="button" (click)="addNewContact('ADD', null)" label="ADD"></button>
+                </div>
+            </div>
+            <div class="ui-md-6 ui-g-nopad pull-right">
+                <div class="pull-right ui-g-nopad search-panel-width">
+                    <div class="search-inputbox width-230">
+                        <input type="text" class="form-input" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                            (keyup.enter)="dt.filterGlobal($event.target.value, 'contains')" pInputText id="name" [(ngModel)]="searchField" placeholder="Search here...">
+                    </div>
+                    <div class="width-94">
+                        <button pButton type="button" (click)="searchField = null;dt.reset()" label="Reset"></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-g">
+        <p-menu [model]="optionMenu" #menu></p-menu>
+            <p-table #dt [columns]="cols" [value]="contactList" [responsive]="true" [rows]="10" [scrollable]="true"
+                scrollHeight="330px" [paginator]="true">
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" [style.width]="col.width">
+                    </colgroup>
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" *ngIf="col.sortable"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            <span [ngSwitch]="true">
+                                    <!-- <span *ngSwitchCase="col.field === 'id'">
+                                            <div (click)="showPopup(menu,$event,rowData)" class=" center">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </div>
+                                        </span> -->
+                                <span *ngSwitchCase="col.field === 'edit'" class="center">
+                                    <button pButton type="button" (click)="addNewContact('EDIT', rowData)" label="Edit"></button>
+                                </span>
+                                <span *ngSwitchCase="col.field === 'view'" class="center">
+                                    <button pButton type="button" (click)="addNewContact('VIEW', rowData)" label="View"></button>
+                                </span>
+                                <span *ngSwitchCase="col.field === 'delete'" class="center">
+                                        <button pButton type="button"  *ngIf="rowData.inActive"  label="Activate"></button>
+                                    <button pButton type="button" class="red-btn" *ngIf="!rowData.inActive" (click)="toggleStatus(rowData)" label="Inactivate"></button>
+                                </span>
+                                <span *ngSwitchCase="col.field === 'firstName'" class="center">
+                                    {{rowData['firstName']}} {{rowData['lastName']}}
+                                </span>
+                                <span *ngSwitchCase="col.field === 'address'" class="center">
+                                    {{rowData['address']['street']}}, {{rowData['address']['city']}},
+                                    {{rowData['address']['postalCode']}}, {{rowData['address']['country']}}
+                                </span>
+                                <span *ngSwitchCase="col.field === 'inActive'" class="center">
+                                    {{rowData['inActive'] == true ? 'Inactivate' : 'Active'}}
+                                </span>
+                                <span *ngSwitchDefault>
+                                    {{rowData[col.field]}}
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td class="empty-grid" [attr.colspan]="columns.length">
+                            {{"NO_RECORDS_FOUND"}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+<app-add-contact [mode]="mode"></app-add-contact>
+
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+
+<p-messages [value]="msgs"></p-messages>

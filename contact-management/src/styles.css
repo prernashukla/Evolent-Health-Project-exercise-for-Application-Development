@@ -1,0 +1,151 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+    
+button, input, optgroup, select, textarea, password {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* css for search section : START */
+
+.container{
+    width:auto;
+    text-align : center;
+    margin-top : 10px;
+    }
+
+    
+.tab-bottom-margin{
+    margin-bottom: 30px
+}
+
+.white-box{
+    background-color: #FFF;
+    border: 1px solid #e7e7e7;
+    float: left;
+    width: 100%;
+    padding: 10px 10px 10px;
+    margin-bottom: 10px;
+  }
+
+  formLabel[_ngcontent-c2] {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+    .header {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 20px 10px;
+      }
+
+      .header .home-logo {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px; 
+        line-height: 25px;
+        border-radius: 4px;
+      }
+      
+      .form-input{
+        margin: auto;
+            height: 34px !important;
+            margin-bottom: 10px;
+            width: 80%;
+            padding-left: 5px;}
+/*** */
+
+.panel-bg{  
+    margin-top: 10px;
+    border: 1px solid #0682be;    
+    border-top: 0px solid transparent; 
+}
+
+.error-message {
+    color: #f10707;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+}
+.margin-b-10 {
+    margin-bottom: 10px;
+}
+
+.search-holder {
+    color: #FFF;
+    background: #042e58;
+    padding: 12px 0px 0;
+    font-size: 18px;
+}
+
+.search-panel-width{width: 408px;}
+.ui-table .ui-table-tbody > tr:nth-child(1n) {
+    background-color: #e6eaee;
+}
+
+.search-inputbox button, .btn-primary {
+    outline: none !important;
+}
+
+.search-inputbox {
+    background: #042e58;
+    padding: 0px 10px 12px;
+}
+
+.search-inputbox input {
+    border-radius: 40px 0 0 40px;
+    padding: 7px 10px 7px 15px !important;
+    border: 0px;
+    font-size: 13px;
+}
+
+.logoin-text {
+    font-weight: normal;
+    font-size: 17px;
+    color: #909090;
+    margin-bottom: 22px;
+}
+
+.search-inputbox button {
+    background: #FFF;
+    border: 0px;
+    width: 40px;
+    border-radius: 0 40px 40px 0;
+    
+}
+.search-inputbox input {
+    font-size: 12px;
+}
+.pull-right {
+    float: right !important;
+}
+.pull-left {
+    float: left !important;
+}
+ 
+.width-94 {
+    float: right;
+    margin: 0 0;
+    padding: 0 5px;
+}
+
+.width-230{
+    width : 230px;
+    float: left;
+    padding-right: 0;
+}
+
+.red-btn{
+    background-color: red !important;
+}
+    /* css for search section : END */
+    .required-star{
+        color : red;
+    }

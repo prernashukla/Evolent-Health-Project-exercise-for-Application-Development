@@ -1,0 +1,22 @@
+
+
+<div class="header">
+    <!-- <a href="#default" class="logo">CompanyLogo</a> -->
+    <!-- <div class="home-logo"></div> -->
+    <span class="logoin-text text-center">Contact Management System</span>
+    <div class="header-right">
+      <a class="active" >Contact</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+    
+<router-outlet></router-outlet>
+  <div class="padding-7-0 fixed-footer">
+     <div id="footer" class="center">
+      <span class="footer-about-color">About Us</span> &copy;
+      <span>All rights are reserved</span>
+  </div>
+  </div>
+  
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
+  

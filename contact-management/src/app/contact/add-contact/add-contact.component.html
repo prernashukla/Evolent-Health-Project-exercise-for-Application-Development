@@ -1,0 +1,80 @@
+<p-dialog header="{{mode}} Contact" [width]="800" [(visible)]="isAddContactPopup" [responsive]="true">
+  <form [formGroup]="contactForm" style="align-items: center !important" >
+  <div class="ui-g ">
+    <div class="ui-g-12">
+    <div class="ui-g-4">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="firstName" pInputText>
+        <label for="float-input">First Name<span class="required-star">*</span></label>
+        <control-messages [control]="contactForm.controls.firstName"></control-messages>
+      </span>
+    </div>
+    <div class="ui-g-1"></div>
+      <div class="ui-g-4"> 
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="lastName" pInputText>
+          <label for="float-input">Last Name<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.lastName"></control-messages>
+        </span>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="email" pInputText >
+          <label for="float-input">Email Id<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.email"></control-messages>
+        </span>
+      </div>
+      <div class="ui-g-1"></div>
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="phoneNumber" pInputText>
+          <label for="float-input">Contact Number<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.phoneNumber"></control-messages>
+        </span>
+      </div>
+    </div>
+    </div>
+    <div class="ui-g" formGroupName="address">
+    <div class="ui-g-12" >
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="street" pInputText>
+          <label for="float-input">Street<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.address.controls.street"></control-messages>
+        </span>
+      </div>
+      <div class="ui-g-1"></div>
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="city" pInputText>
+          <label for="float-input">City<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.address.controls.city"></control-messages>
+        </span>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="postalCode" pInputText>
+          <label for="float-input">Postal Code<span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.address.controls.postalCode"></control-messages>
+        </span>
+      </div>
+      <div class="ui-g-1"></div>
+      <div class="ui-g-4">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" size="30" formControlName="country" pInputText>
+          <label for="float-input">Country <span class="required-star">*</span></label>
+          <control-messages [control]="contactForm.controls.address.controls.country"></control-messages>
+        </span>
+      </div>
+      </div>
+    </div>
+</form>
+    <p-footer>
+      <button type="button" pButton icon="pi pi-check" (click)="saveContact()" [disabled]="!contactForm.valid" *ngIf="mode != 'VIEW'" label="Save"></button>
+      <button type="button" pButton icon="pi pi-close" (click)="isAddContactPopup=false" label="Cancel" class="ui-button-secondary"></button>
+    </p-footer>
+</p-dialog>

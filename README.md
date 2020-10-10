@@ -1,4 +1,4 @@
-# Evolent-Health-Project-exercise-for-Application-Development
+# Angular-Application-Development
 
 Designed and implemented a production ready application for maintaining
 contact information. This application supports feature of edit, view, create, and active/inactive contact. 
